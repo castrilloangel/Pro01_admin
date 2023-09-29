@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "description": null,
+    "order": 1,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "residencia",
+      "tag": "input",
+      "label": "residencia",
+      "attributes": {
+        "type": "radio",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 2,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "nro_casa",
+      "tag": "input",
+      "label": "nro. casa",
+      "attributes": {
+        "type": "text",
+        "pattern": "[0-9]*"
+      },
+      "validators": ["required", "pattern"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 3,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 12
+    },
+    "control": {
+      "name": "punto_referencia",
+      "tag": "textarea",
+      "label": "punto de referencia",
+      "attributes": {
+        "placeholder": "direccion adicional o punto de referencia",
+        "maxLength": 255
+      },
+      "validators": ["maxLength"]
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 4,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 12, "icon": ""
+    },
+    "control": {
+      "name": "direccion_fiscal",
+      "tag": "textarea",
+      "label": "dirección fiscal",
+      "attributes": {
+        "placeholder": "dirección fiscal",
+        "maxLength": 255,
+        "disabled": true
+      }
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 5,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 12, "icon": "fa fa-globe"
+    },
+    "control": {
+      "name": "georeferenciacion_boton",
+      "tag": "button",
+      "label": "georeferenciación",
+      "content": "MAPA",
+      "attributes": {
+        "value": "mapa"
+      },
+      "action": "openMap",
+      "fills": "direccion_fiscal"
+    }
+  }
+]

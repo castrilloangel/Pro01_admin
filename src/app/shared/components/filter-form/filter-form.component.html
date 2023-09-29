@@ -1,0 +1,19 @@
+<app-tabs>
+  <!-- drawing a tab level -->
+  <ng-container *ngFor="let filterForm of filterForms; let i=index">
+    <app-tab [tabTitle]="filterForm.name" [tabIcon]="filterForm.styleRules?.icon">
+      <!-- find another level tab to draw -->
+      <ng-container
+        *ngIf="filterForm.childrenFilterForms && filterForm.childrenFilterForms.length > 0 ; else elseBlock">
+        <app-filter-form [filterForms]="filterForm.childrenFilterForms"></app-filter-form>
+      </ng-container>
+      <ng-template #elseBlock>
+        <!-- paint any other module -->
+        <ng-container *ngIf="filterForm.form">
+          <app-json-form [jsonForm]="filterForm.form" [formMethods]="null"
+            [formEndpointURL]="filterForm.form.submitTarget">SUBMIT</app-json-form>
+        </ng-container>
+      </ng-template>
+    </app-tab>
+  </ng-container>
+</app-tabs>

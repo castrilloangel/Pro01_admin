@@ -1,0 +1,6 @@
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000',
+  apiKey: 'your secret api key goes here',
+  encryptionKey: 'fha24edazqd21'
+}

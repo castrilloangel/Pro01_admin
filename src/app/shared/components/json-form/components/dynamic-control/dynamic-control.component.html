@@ -1,0 +1,118 @@
+<ng-container [formGroup]="parentFormGroup">
+
+  <!-- INPUT -->
+  <ng-container
+  *ngIf="control.tag === 'input' && [
+      'text',
+      'password',
+      'email',
+      'number',
+      'date',
+      'search',
+      'tel',
+      'url'
+    ].includes(control.attributes?.type!)">
+
+    <div [class]="{'input-group': control.buttonGroup || control.buttonLabel}">
+      <span *ngIf="control.buttonLabel" class="input-group-addon tx-size-sm lh-2">
+        <i [class]="control.buttonLabel.icon"></i>
+        {{ control.buttonLabel.content }}
+      </span>
+      <input class="form-control"
+        [type]="control.attributes?.type"
+        [name]="control.name"
+        [attr.pattern]="control.attributes?.pattern"
+        [attr.value]="control.attributes?.value"
+        [attr.placeholder]="control.attributes?.placeholder?.toUpperCase()"
+        [attr.required]="control.attributes?.required"
+        [attr.disabled]="control.attributes?.disabled"
+        [formControlName]="control.name">
+      <span *ngIf="control.buttonGroup" class="input-group-btn">
+        <button class="btn bd bg-white tx-gray-600">
+          <i [class]="{
+            'fa': true,
+            'fa-plus': control.buttonGroup === 'add',
+            'fa-search': control.buttonGroup === 'search'
+          }"></i>
+        </button>
+      </span>
+    </div>
+
+  </ng-container>
+
+  <!-- RADIO -->
+  <ng-container *ngIf="control.tag === 'input' && control.attributes?.type === 'radio'">
+    <label class="rdiobox" *ngFor="let option of control.data">
+      <input
+        [name]="control.name"
+        type="radio"
+        [value]="option.value"
+        [attr.required]="control.attributes?.required"
+        [formControlName]="control.name">
+      <span>{{ option.name | uppercase }}</span>
+    </label>
+  </ng-container>
+
+  <!-- CHECKBOX -->
+  <ng-container *ngIf="control.tag === 'input' && control.attributes?.type === 'checkbox'">
+    <label class="ckbox">
+      <input
+        [name]="control.name"
+        type="checkbox"
+        [attr.required]="control.attributes?.required"
+        [formControlName]="control.name">
+      <span>{{ control.name | uppercase }}</span>
+    </label>
+  </ng-container>
+
+  <!-- SELECT -->
+  <ng-container *ngIf="control.tag === 'select'">
+    <!-- <div [class]="{'input-group': control.buttonGroup || control.buttonLabel}">
+      <span *ngIf="control.buttonLabel" class="input-group-addon tx-size-sm lh-2">
+        <i [class]="control.buttonLabel.icon"></i>
+        {{ control.buttonLabel.content }}
+      </span> -->
+      <ng-select
+        class="ng-select"
+        [attr.name]="control.name"
+        [formControlName]="control.name"
+        [items]="control.data!"
+        bindLabel="name"
+        bindValue="value"
+        [attr.required]="control.attributes?.required"
+        [attr.disabled]="control.attributes?.disabled"
+        [placeholder]="control.attributes?.placeholder?.toUpperCase() ?? ''"
+      ></ng-select>
+      <!-- <span *ngIf="control.buttonGroup" class="input-group-btn">
+        <button class="btn bd bg-white tx-gray-600">
+          <i [class]="{
+            'fa': true,
+            'fa-plus': control.buttonGroup === 'add',
+            'fa-search': control.buttonGroup === 'search'
+          }"></i>
+        </button>
+      </span>
+    </div> -->
+  </ng-container>
+
+  <!-- TEXTAREA -->
+  <textarea *ngIf="control.tag === 'textarea'"
+  class="form-control"
+  [name]="control.name"
+  [attr.value]="control.attributes?.value"
+  [attr.required]="control.attributes?.required"
+  [attr.disabled]="control.attributes?.disabled"
+  [attr.placeholder]="control.attributes?.placeholder"
+  [attr.minLength]="control.attributes?.minLength"
+  [attr.maxLength]="control.attributes?.maxLength"
+  [formControlName]="control.name"></textarea>
+
+  <!-- BUTTON -->
+  <button
+    class="form-control btn btn-primary"
+    [attr.disabled]="control.attributes?.disabled"
+    (click)="employAction()"
+    *ngIf="control.tag === 'button'">
+    {{ control.content | uppercase }}
+  </button>
+</ng-container>

@@ -1,0 +1,83 @@
+<ng-container [formGroup]="form">
+  <div class="row" formArrayName="formGroups">
+
+    <ng-container *ngFor="let formGroup of jsonForm.formGroups; let i=index" [formGroup]="innerFormGroups[i]"><!-- formGroup is the form step AND i is the form group step -->
+      
+      <!-- FORM GROUP -->
+      <div [class]="'col-xl-' + (formGroup.styleRules?.width || 12)">
+        <div class="card mg-b-20">
+          <div class="card-header" *ngIf="formGroup.name">{{ formGroup.name | uppercase }}</div>
+          <div class="card-body">
+            <div class="row">
+
+              <ng-container *ngFor="let formControl of formGroup.formControls; let j=index">
+
+                <!-- IF CONTROL IS JUST A REGULAR CONTROL -->
+                <ng-container *ngIf="!formControl.control.is_form_array">
+                  <div [class]="'col-lg-' + (formControl.styleRules?.width || 12)">
+                    <div class="form-group">
+                      <!-- CONTROL LABEL -->
+                      <label class="form-control-label">
+                        <!-- REQUIRED SYMBOL -->
+                        {{ formControl.control.attributes?.required && '* ' }}
+                        <!-- ICON -->
+                        <ng-container *ngIf="formControl.styleRules?.icon">
+                          <i [class]="formControl.styleRules?.icon"></i>&nbsp;
+                        </ng-container>
+                        <!-- LABEL CONTENT -->
+                        {{ formControl.control.label ? formControl.control.label.toUpperCase() : '&nbsp;' }}
+                      </label>
+                      <!-- CONTROL -->
+                      <app-dynamic-control [parentFormGroup]="innerFormGroups[i]" [thisFormControlName]="formControl.control.name" [control]="formControl.control" [action]="(formMethods !== null) ? formMethods[formControl.control.name] : null"></app-dynamic-control>
+                    </div>
+                  </div>
+                </ng-container>
+                
+                <!--------- EXPERIMENTAL FORM CONTROL --------->
+                <!-- IF CONTROL IS A FORM ARRAY -->
+                <ng-container *ngIf="formControl.control.is_form_array">
+                  <ng-container [formArrayName]="formControl.control.name">
+                    <ng-container *ngFor="let formGroup of getFormArrayFormGroups(i, formControl.control.name)"><!-- FormArray form groups loop -->
+                      <ng-container *ngFor="let control of formControl.control.form_array_controls"><!-- controls for form group loop -->
+                        <div [class]="'col-lg-' + control.style_rules?.width || 12">
+                          <div class="form-group">
+                            <!-- CONTROL LABEL -->
+                            <label class="form-control-label">
+                              <!-- REQUIRED SYMBOL -->
+                              {{ control.attributes?.required && '* ' }}
+                              <!-- ICON -->
+                              <ng-container *ngIf="control.style_rules?.icon">
+                                <i [class]="control.style_rules?.icon"></i>&nbsp;
+                              </ng-container>
+                              <!-- LABEL CONTENT -->
+                              {{ formControl.control.label ? formControl.control.label.toUpperCase() : '&nbsp;' }}
+                            </label>
+                            <!-- CONTROL -->
+                            <app-dynamic-control [parentFormGroup]="formGroup" [thisFormControlName]="control.name" [control]="control" [action]="(formMethods !== null) ? formMethods[control.name] : null"></app-dynamic-control>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </ng-container>
+                    <div class="col-lg-12 d-flex justify-content-end">
+                      <button class="btn bton-secondary mg-b-10" (click)="addFormGroupToFormArray(i, formControl.control.name, j)"><i class="fa fa-plus"></i></button>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                
+              </ng-container>
+
+            </div><!-- row -->
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col-xl-x -->
+      <!-- FORM GROUP -->
+
+    </ng-container>
+  </div>
+</ng-container>
+
+<div class="row d-flex justify-content-center">
+  <button class="btn btn-primary mg-r-10" [disabled]="form.invalid"><i class="fa fa-check"></i>&nbsp;<ng-content><!-- CUSTOM SUBMIT TEXT GOES HERE --></ng-content></button>
+  <button class="btn btn-secondary mg-r-10" (click)="resetForm()"><i class="fa fa-repeat"></i>&nbsp;LIMPIAR</button>
+  <button class="btn btn-secondary" (click)="test()">CHECK FORM VALUES</button>
+</div>

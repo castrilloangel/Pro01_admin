@@ -1,0 +1,158 @@
+[
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 1,
+    "styleRules": {
+      "width": 8
+    },
+    "control": {
+      "name": "tipo_abonado",
+      "tag": "input",
+      "label": "tipo de abonado",
+      "attributes": {
+        "type": "radio",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 2,
+    "styleRules": {
+      "width": 4
+    },
+    "control": {
+      "name": "tipo_facturacion",
+      "tag": "input",
+      "label": "tipo de facturación",
+      "attributes": {
+        "type": "radio",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 3,
+    "styleRules": {
+      "width": 4
+    },
+    "control": {
+      "name": "franquicia",
+      "tag": "select",
+      "label": "franquicia",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 4,
+    "styleRules": {
+      "width": 4
+    },
+    "control": {
+      "name": "grupo_afinidad",
+      "tag": "select",
+      "label": "grupo afinidad",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 5,
+    "styleRules": {
+      "width": 4
+    },
+    "control": {
+      "name": "vendedor",
+      "tag": "select",
+      "label": "vendedor",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 6,
+    "styleRules": {
+      "width": 4
+    },
+    "control": {
+      "name": "asesor",
+      "tag": "input",
+      "label": "asesor",
+      "attributes": {
+        "type": "text",
+        "required": true
+      },
+      "validators": ["required"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 7,
+    "styleRules": {
+      "width": 4
+    },
+    "control": {
+      "name": "poste",
+      "tag": "input",
+      "label": "poste",
+      "attributes": {
+        "type": "text",
+        "required": true
+      },
+      "validators": ["required"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 8,
+    "styleRules": {
+      "width": 12
+    },
+    "control": {
+      "name": "contrato_observacion",
+      "tag": "textarea",
+      "label": "observación",
+      "attributes": {
+        "maxLength": 255
+      },
+      "validators": ["maxLength"]
+    }
+  }
+]

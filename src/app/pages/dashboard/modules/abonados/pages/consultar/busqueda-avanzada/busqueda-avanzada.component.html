@@ -1,0 +1,79 @@
+<!-- DATOS HISTÓRICOS DEL ABONADO -->
+<div class="row row-sm">
+  <div class="col-xl-12">
+    <div class="card bd">
+      <div class="card-header bd-b">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.DatosPersona && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.DatosPersona)">Datos Persona</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.Estatus && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.Estatus)">Estatus</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.Franquicia && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.Franquicia)">Franquicia</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.Direccion && 'active']"
+              href="javascript:void(0)" (click)="setCurrentTab(navTabEnum.Direccion)">Dirección</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.Saldo && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.Saldo)">Saldo</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.Servicios && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.Servicios)">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.Otros && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.Otros)">Otros</a>
+          </li>
+          <li class="nav-item">
+            <a [class]="['nav-link', currentTab === navTabEnum.AcuerdoPago && 'active']" href="javascript:void(0)"
+              (click)="setCurrentTab(navTabEnum.AcuerdoPago)">Acuerdo Pago</a>
+          </li>
+        </ul>
+      </div><!-- card-header -->
+
+      <div class="card-body color-gray-lighter" [ngSwitch]="currentTab">
+        <!-- Datos Persona -->
+        <app-datos-persona *ngSwitchCase="navTabEnum.DatosPersona"></app-datos-persona>
+
+        <!-- Estatus -->
+        <app-estatus *ngSwitchCase="navTabEnum.Estatus"></app-estatus>
+
+        <!-- Franquicia -->
+        <div *ngSwitchCase="navTabEnum.Franquicia"></div>
+
+        <!-- Dirección -->
+        <div *ngSwitchCase="navTabEnum.Direccion"></div>
+
+        <!-- Saldo -->
+        <div *ngSwitchCase="navTabEnum.Saldo"></div>
+
+        <!-- Servicios -->
+        <div *ngSwitchCase="navTabEnum.Servicios"></div>
+
+        <!-- Otros -->
+        <div *ngSwitchCase="navTabEnum.Otros"></div>
+
+        <!-- Acuerdo Pago -->
+        <div *ngSwitchCase="navTabEnum.AcuerdoPago"></div>
+      </div><!-- card-body -->
+
+    </div>
+  </div><!-- col-12 -->
+</div><!-- row -->
+
+<!-- RESULTADOS DE LA BUSQUEDA -->
+<div class="row mg-t-20" *ngIf="clients.length > 0">
+  <div class="col-12">
+    <button class="btn btn-primary mg-b-20"><i class="fa fa-file-excel-o"></i></button>
+    <!-- LISTA DE CLIENTES QUE CUMPLEN CON LOS CRITERIOS -->
+    <app-data-table tableId="busqueda-avanzada-consulta-table"></app-data-table>
+  </div>
+</div>

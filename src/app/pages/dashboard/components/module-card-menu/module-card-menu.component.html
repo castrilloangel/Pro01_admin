@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-6 col-sm-4 col-md" *ngFor="let module of getOnlyModulesWithRoutes()">
+    <a class="shortcut-icon"
+      [routerLink]="'/dashboard/' + module.route">
+      <div>
+        <i class="icon ion-ios-albums-outline"></i>
+        <span>{{ module.name }}</span>
+      </div>
+    </a>
+  </div><!-- col -->
+</div><!-- row -->

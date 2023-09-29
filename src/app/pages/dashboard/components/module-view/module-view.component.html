@@ -1,0 +1,17 @@
+<ng-container *ngFor="let contentBlock of moduleContent; let i = index">
+  <ng-container [ngSwitch]="contentBlock.type">
+    <!-- regular data forms -->
+    <ng-container *ngSwitchCase="ContentBlockType.FORM">
+      <app-json-form [jsonForm]="contentBlock.forms[i]" [formMethods]="null" [formEndpointURL]="contentBlock.forms[i].submitTarget">REGISTRAR</app-json-form>
+    </ng-container>
+
+    <!-- forms used to search -->
+    <app-filter-form *ngSwitchCase="ContentBlockType.FILTER_FORM" [filterForms]="contentBlock.filterForms"></app-filter-form>
+
+    <!-- action buttons with uses, like subtmiting forms, clearing forms, etc -->
+    <app-action-buttons *ngSwitchCase="ContentBlockType.ACTION_BUTTONS" [buttons]="contentBlock.actionButtons"></app-action-buttons>
+
+    <!-- tables returned from the backend -->
+    <!-- <app-content-tables *ngSwitchCase="ContentBlockType.TABLE"></app-content-tables> -->
+  </ng-container>
+</ng-container>

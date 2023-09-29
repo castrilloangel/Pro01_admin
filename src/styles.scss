@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/shamcey.css'; // the template's style (bootstrap.css + custom styles)
+
+// add your custom rules down here
+.table button {
+  margin: 2px;
+}
+
+.modal-dialog.modal-lg {
+  max-width: 85%;
+}

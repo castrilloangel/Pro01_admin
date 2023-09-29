@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 1,
+    "styleRules": {
+      "width": 3
+    },
+    "control": {
+      "name": "fecha_nacimiento",
+      "tag": "input",
+      "label": "fecha de nacimiento",
+      "attributes": {
+        "type": "date",
+        "required": true
+      },
+      "validators": ["required"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 2,
+    "styleRules": {
+      "width": 3
+    },
+    "control": {
+      "name": "tipo_cliente",
+      "tag": "select",
+      "label": "tipo cliente",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 3,
+    "styleRules": {
+      "width": 3
+    },
+    "control": {
+      "name": "tipo_doc",
+      "tag": "select",
+      "label": "tipo doc.",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 4,
+    "styleRules": {
+      "width": 3
+    },
+    "control": {
+      "name": "n_documento",
+      "tag": "input",
+      "label": "n° documento",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "type": "text",
+        "pattern": "[0-9]*",
+        "required": true
+      },
+      "validators": ["required", "pattern"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 5,
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "nombre",
+      "tag": "input",
+      "label": "nombre(s)",
+      "attributes": {
+        "type": "text",
+        "required": true
+      },
+      "validators": ["required"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 6,
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "apellido",
+      "tag": "input",
+      "label": "apellido(s)",
+      "attributes": {
+        "type": "text",
+        "required": true
+      },
+      "validators": ["required"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 7,
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "celular",
+      "tag": "input",
+      "label": "celular (móvil)",
+      "attributes": {
+        "type": "tel",
+        "pattern": "[0-9]{3}-[0-9]{7}",
+        "required": true
+      },
+      "validators": ["required", "pattern"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 8,
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "telefono_fijo",
+      "tag": "input",
+      "label": "télefono fijo",
+      "attributes": {
+        "type": "tel",
+        "pattern": "[0-9]{3}-[0-9]{7}",
+        "required": true
+      },
+      "validators": ["required", "pattern"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 9,
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "telefono_adicional",
+      "tag": "input",
+      "label": "tlf. adicional",
+      "attributes": {
+        "type": "tel",
+        "pattern": "[0-9]{3}-[0-9]{7}"
+      },
+      "validators": ["pattern"]
+    }
+  },
+  {
+    "id": 1,
+    "description": "",
+    "dataSource": "",
+    "order": 10,
+    "styleRules": {
+      "width": 6
+    },
+    "control": {
+      "name": "email",
+      "tag": "input",
+      "label": "e-mail",
+      "attributes": {
+        "type": "email",
+        "required": true
+      },
+      "validators": ["required", "email"]
+    }
+  }
+]

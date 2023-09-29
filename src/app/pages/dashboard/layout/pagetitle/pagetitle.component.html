@@ -1,0 +1,17 @@
+<div class="sh-pagetitle">
+  <div class="input-group">
+    <input type="search" class="form-control" placeholder="Search">
+    <span class="input-group-btn">
+      <button class="btn"><i class="fa fa-search"></i></button>
+    </span><!-- input-group-btn -->
+  </div><!-- input-group -->
+  <div class="sh-pagetitle-left">
+    <div class="sh-pagetitle-icon">
+      <ng-content select="[icon]"></ng-content>
+    </div>
+    <div class="sh-pagetitle-title">
+      <ng-content select="[title]"></ng-content>
+      <ng-content select="[subtitle]"></ng-content>
+    </div><!-- sh-pagetitle-left-title -->
+  </div><!-- sh-pagetitle-left -->
+</div><!-- sh-pagetitle -->

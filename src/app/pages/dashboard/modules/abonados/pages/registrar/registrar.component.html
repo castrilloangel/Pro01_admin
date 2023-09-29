@@ -1,0 +1,370 @@
+<!-- DINAMIC FORM GROUP -->
+<app-json-form *ngIf="jsonForm" [jsonForm]="jsonForm" [formMethods]="formMethods" formEndpointURL="/abonados">REGISTRAR</app-json-form>
+<!------------------------>
+
+<div class="row row-sm mg-t-20">
+  <div class="col-xl-6">
+    <div class="card mg-b-20">
+      <div class="card-header">DATOS DEL CONTRATO</div>
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-lg-8">
+            <div class="form-group">
+              <label class="form-control-label">TIPO DE ABONADO</label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="cliente">
+                <span>CLIENTE</span>
+              </label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="prospecto">
+                <span>PROSPECTO</span>
+              </label>
+            </div>
+          </div><!-- col-8 -->
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">TIPO DE FACTURACIÓN</label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="cliente">
+                <span>PREPAGO</span>
+              </label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="prospecto">
+                <span>POSTPAGO</span>
+              </label>
+            </div>
+          </div><!-- col-4 -->
+
+          <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">FRANQUICIA</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="Firefox">Firefox</option>
+                <option value="Chrome">Chrome</option>
+              </select>
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">GRUPO AFINIDAD</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">VENDEDOR</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-4 -->
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">ASESOR</label>
+              <input class="form-control" type="text" name="asesor">
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">POSTE</label>
+              <input class="form-control" type="text" name="poste">
+            </div>
+          </div><!-- col-4 -->
+          <div class="col-lg-4"></div><!-- col-4 -->
+
+        </div><!-- row -->
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label class="form-control-label">OBSERVACIÓN</label>
+              <textarea class="form-control"></textarea>
+            </div>
+          </div><!-- col-12 -->
+        </div><!-- row -->
+      </div><!-- card-body -->
+    </div><!-- card -->
+  </div><!-- col-6 -->
+
+  <div class="col-xl-6">
+    <div class="card mg-b-20">
+      <div class="card-header">DATOS DEL ABONADO</div>
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-lg-3">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">FECHA DE NACIMIENTO</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon ion-calendar tx-16 lh-0 op-6"></i></span>
+                <input type="text" class="form-control fc-datepicker hasDatepicker" placeholder="MM/DD/YYYY"
+                  id="dp1676555954926">
+              </div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-lg-3">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">TIPO CLIENTE</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-lg-2">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">TIPO DOC.</label>
+              <select class="form-control select2" data-placeholder="V" tabindex="-1" aria-hidden="true">
+                <option label="V"></option>
+                <option value="USA">V</option>
+                <option value="UK">R</option>
+              </select>
+            </div>
+          </div><!-- col-2 -->
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label">N° DOCUMENTO</label>
+              <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-btn btn-primary">
+                  <button class="btn bd bg-white tx-gray-600" type="button"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+          </div><!-- col-4 -->
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">NOMBRE(S)</label>
+              <input class="form-control" type="text" name="nombres">
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">APELLIDO(S)</label>
+              <input class="form-control" type="text" name="apellidos">
+            </div>
+          </div><!-- col-6 -->
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">CELULAR (MÓVIL)</label>
+              <input class="form-control" type="number" name="apellidos">
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">TÉLEFONO FIJO</label>
+              <input class="form-control" type="number" name="apellidos">
+            </div>
+          </div><!-- col-6 -->
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">TLF. ADICIONAL</label>
+              <input class="form-control" type="number" name="apellidos">
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">E-MAIL</label>
+              <input class="form-control" type="email" name="apellidos">
+            </div>
+          </div><!-- col-6 -->
+        </div><!-- row -->
+      </div><!-- card-body -->
+    </div><!-- card -->
+  </div><!-- col-6 -->
+
+  <div class="col-xl-6">
+    <div class="card mg-b-20">
+      <div class="card-header">DATOS DE DIRECCIÓN</div>
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">DEPARTAMENTO</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="Firefox">Firefox</option>
+                <option value="Chrome">Chrome</option>
+              </select>
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">CIUDAD/MUNICIPIO</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-6 -->
+
+          <div class="col-lg-6">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">ZONA</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">SECTOR</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-6 -->
+
+        </div><!-- row -->
+
+        <div class="row mg-t-40">
+          <div class="col-lg-6">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">NOMENCLATURA 1</label>
+              <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                <option label="SELECCIONE..."></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+              </select>
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group mg-b-10-force">
+              <label class="form-control-label">VALOR</label>
+              <div class="input-group">
+                <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1" aria-hidden="true">
+                  <option label="SELECCIONE..."></option>
+                  <option value="USA">United States of America</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="China">China</option>
+                  <option value="Japan">Japan</option>
+                </select>
+                <span class="input-group-btn btn-primary">
+                  <button class="btn bd bg-white tx-gray-600" type="button"><i class="fa fa-plus"></i></button>
+                </span>
+              </div>
+            </div>
+          </div><!-- col-6 -->
+        </div><!-- row -->
+      </div><!-- card-body -->
+    </div><!-- card -->
+  </div><!-- col-6 -->
+
+  <div class="col-xl-6">
+    <div class="card mg-b-20">
+      <div class="card-header">DATOS DE RESIDENCIA</div>
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">RESIDENCIA</label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="cliente">
+                <span>CASA</span>
+              </label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="prospecto">
+                <span>EDIFICIO</span>
+              </label>
+            </div>
+          </div><!-- col-6 -->
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label">NRO. CASA</label>
+              <input class="form-control" type="number" name="poste">
+            </div>
+          </div><!-- col-6 -->
+
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label class="form-control-label">PUNTO DE REFERENCIA</label>
+              <textarea class="form-control" placeholder="DIRECCIÓN ADICIONAL O PUNTO DE REFERENCIA"></textarea>
+            </div>
+          </div><!-- col-12 -->
+
+        </div><!-- row -->
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label class="form-control-label">DIRECCIÓN FISCAL <i class="icon ion-refresh"></i></label>
+              <textarea class="form-control" placeholder="DIRECCIÓN FISCAL" disabled></textarea>
+            </div>
+          </div><!-- col-12 -->
+        </div><!-- row -->
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label class="form-control-label">GEOREFERENCIACIÓN</label>
+              <button class="btn btn-primary" style="display: block;"><i class="fa fa-globe"></i> MAPA</button>
+            </div>
+          </div><!-- col-12 -->
+        </div><!-- row -->
+      </div><!-- card-body -->
+    </div><!-- card -->
+  </div><!-- col-6 -->
+
+  <div class="col-xl-12">
+    <div class="card mg-b-20">
+      <div class="card-header">SOLICITUD DE INSTALACIÓN</div>
+      <div class="card-body">
+
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label class="form-control-label">APLICA COMBO DE SERVICIOS?</label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="cliente">
+                <span>SI</span>
+              </label>
+              <label class="rdiobox">
+                <input name="rdio" type="radio" value="prospecto">
+                <span>NO</span>
+              </label>
+            </div>
+          </div><!-- col-12 -->
+        </div><!-- row -->
+      </div><!-- card-body -->
+    </div><!-- card -->
+  </div><!-- col-12 -->
+</div>

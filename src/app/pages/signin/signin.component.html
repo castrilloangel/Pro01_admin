@@ -1,0 +1,25 @@
+<div class="bg-gray-900">
+  <div class="signpanel-wrapper">
+    <div class="signbox">
+      <div class="signbox-header">
+        <h2>AdminISPV1</h2>
+        <p class="mg-b-0">El dashboard admin de Fibex Telecom</p>
+      </div><!-- signbox-header -->
+      <div class="signbox-body">
+        <div class="form-group">
+          <label class="form-control-label">Usuario:</label>
+          <input [(ngModel)]="username" type="text" placeholder="Ingresa tu usuario" class="form-control">
+        </div><!-- form-group -->
+        <div class="form-group">
+          <label class="form-control-label">Contraseña:</label>
+          <input [(ngModel)]="password" type="password" placeholder="Ingresa tu contraseña" class="form-control">
+        </div><!-- form-group -->
+        <div class="form-group">
+          <a href="">Se te olvido tu contraseña?</a>
+        </div><!-- form-group -->
+        <button class="btn btn-success btn-block" (click)="login()">Ingresar</button>
+        <div class="tx-center bg-white bd pd-10 mg-t-40">Todavía no tienes una cuenta? <a routerLink='/signup'>Crea una nueva cuenta</a></div>
+      </div><!-- signbox-body -->
+    </div><!-- signbox -->
+  </div><!-- signpanel-wrapper -->
+</div>

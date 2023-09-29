@@ -1,0 +1,31 @@
+<!-- side menu -->
+<app-side-menu></app-side-menu>
+
+<!-- head panel (shortcuts for settings, profile, notifications, etc) -->
+<app-headpanel></app-headpanel>
+
+<!-- dashboard content -->
+<app-mainpanel>
+  <app-breadcrumb>
+    <a class="breadcrumb-item" routerLink='/'>AdminISPV1</a>
+    <span class="breadcrumb-item" *ngFor="let item of breadcrumb">{{ item }}</span>
+  </app-breadcrumb>
+
+  <app-pagetitle>
+    <i [class]="pagetitleIcon" icon></i>
+    <span title>{{ breadcrumb[0] }}</span>
+    <h2 subtitle>{{ breadcrumb[breadcrumb.length - 1] }}</h2>
+  </app-pagetitle>
+
+  <!-- pagebody is where your content will live -->
+  <app-pagebody>
+    <router-outlet></router-outlet>
+    <!-- animation to show when waiting for resolver to fetch the data and change views (work in progress) -->
+    <div class="loader-container" *ngIf="false">
+      <div class="loader"></div>
+    </div>
+  </app-pagebody>
+
+  <!-- footer -->
+  <app-footer></app-footer>
+</app-mainpanel>

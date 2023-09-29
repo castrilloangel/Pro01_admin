@@ -1,0 +1,176 @@
+<!-- BÚSQUEDA DE ABONADOS -->
+<div class="row row-sm mg-t-20">
+  <div class="col-xl-12">
+    <div class="card mg-b-20">
+      <div class="card-header">BÚSQUEDA DE ABONADOS</div>
+      <div class="card-body">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                <label class="form-control-label">NÚMERO DE ABONADO</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" [(ngModel)]="clientNumber">
+                  <span class="input-group-btn btn-primary">
+                    <button class="btn bd bg-white tx-gray-600" type="button" (click)="getClientByNumber()">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">DOCUMENTO DE IDENTIDAD</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" [(ngModel)]="clientIdentityId">
+                  <span class="input-group-btn btn-primary">
+                    <button class="btn bd bg-white tx-gray-600" type="button" (click)="getClientByIdentityId()"><i
+                        class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">&nbsp;</label>
+                <button class="btn btn-primary btn-block"><i class="fa fa-search"></i> BÚSQUEDA AVANZADA</button>
+              </div>
+            </div><!-- col-4 -->
+          </div><!-- row -->
+
+      </div><!-- card-body -->
+    </div><!-- card -->
+  </div><!-- col-12 -->
+</div><!-- row -->
+
+<!-- from here on below it's all generated content from a given client -->
+<ng-container *ngIf="client">
+  <div class="row row-sm mg-t-20">
+    <!-- RESUMEN -->
+    <div class="col-xl-12">
+      <app-resumen></app-resumen>
+    </div>
+  </div><!-- row -->
+
+  <div class="row row-sm mg-t-20">
+    <!-- DATOS DEL CONTRATO -->
+    <div class="col-xl-6">
+      <app-datos-contrato></app-datos-contrato>
+    </div>
+
+    <!-- DATOS PERSONALES DEL CLIENTE -->
+    <div class="col-xl-6">
+      <app-datos-cliente></app-datos-cliente>
+    </div>
+
+    <!-- DATOS DE DIRECCION -->
+    <div class="col-xl-6">
+      <app-datos-direccion></app-datos-direccion>
+    </div>
+
+    <!-- DATOS DE RESIDENCIA -->
+    <div class="col-xl-6">
+      <app-datos-residencia></app-datos-residencia>
+    </div>
+
+    <!-- DATOS DE RESIDENCIA -->
+    <div class="col-xl-6">
+      <app-datos-direccion></app-datos-direccion>
+    </div>
+  </div><!-- row -->
+
+  <div class="row row-sm mg-t-20">
+    <!-- DATOS DE LOS SERVICIOS MENSUALES SUSCRITOS -->
+    <div class="col-xl-12">
+      <app-datos-servicios-mensuales-suscritos></app-datos-servicios-mensuales-suscritos>
+    </div>
+  </div><!-- row -->
+
+  <div class="row row-sm mg-t-20">
+    <!-- DATOS DE EQUIPOS -->
+    <div class="col-xl-12">
+      <app-datos-equipos></app-datos-equipos>
+    </div>
+  </div><!-- row -->
+
+  <!-- ARCHIVOS ADJUNTOS DEL ABONADO -->
+  <div class="row row-sm mg-t-20">
+    <div class="col-xl-12">
+      <div class="card mg-b-20">
+        <div class="card-header">
+          ARCHIVOS ADJUNTOS DEL ABONADO
+          <button class="btn btn-primary"><i class="fa fa-chevron-down"></i></button>
+        </div>
+      </div><!-- card -->
+    </div><!-- col-12 -->
+  </div><!-- row -->
+
+  <!-- DATOS HISTÓRICOS DEL ABONADO -->
+  <div class="row row-sm mg-t-20">
+    <div class="col-xl-12">
+      <div class="card bd">
+        <div class="card-header bd-b">
+          <div class="mg-b-10">DATOS HISTÓRICOS DEL ABONADO</div>
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a [class]="['nav-link', currentTab === navTabEnum.EstadoCuenta && 'active']" href="javascript:void(0)"
+                (click)="setCurrentTab(navTabEnum.EstadoCuenta)">Estado de Cuenta</a>
+            </li>
+            <li class="nav-item">
+              <a [class]="['nav-link', currentTab === navTabEnum.Operaciones && 'active']" href="javascript:void(0)"
+                (click)="setCurrentTab(navTabEnum.Operaciones)">Operaciones</a>
+            </li>
+            <li class="nav-item">
+              <a [class]="['nav-link', currentTab === navTabEnum.Observaciones && 'active']" href="javascript:void(0)"
+                (click)="setCurrentTab(navTabEnum.Observaciones)">Observaciones</a>
+            </li>
+            <li class="nav-item">
+              <a [class]="['nav-link', currentTab === navTabEnum.DepositosTransferencias && 'active']"
+                href="javascript:void(0)" (click)="setCurrentTab(navTabEnum.DepositosTransferencias)">Depósitos/Transf</a>
+            </li>
+            <li class="nav-item">
+              <a [class]="['nav-link', currentTab === navTabEnum.ServicioCliente && 'active']" href="javascript:void(0)"
+                (click)="setCurrentTab(navTabEnum.ServicioCliente)">Servicio al Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a [class]="['nav-link', currentTab === navTabEnum.MasOpciones && 'active']" href="javascript:void(0)"
+                (click)="setCurrentTab(navTabEnum.MasOpciones)">Más Opciones</a>
+            </li>
+          </ul>
+        </div><!-- card-header -->
+
+        <div class="card-body color-gray-lighter" [ngSwitch]="currentTab">
+          <!-- Estado de Cuenta -->
+          <app-estado-de-cuenta *ngSwitchCase="navTabEnum.EstadoCuenta"></app-estado-de-cuenta>
+
+          <!-- Operaciones -->
+          <app-operaciones *ngSwitchCase="navTabEnum.Operaciones"></app-operaciones>
+
+          <!-- Observaciones -->
+          <ng-container *ngSwitchCase="navTabEnum.Observaciones">
+            <button class="btn btn-primary mg-b-20"><i class="fa fa-file-excel-o"></i></button>
+            <app-observaciones></app-observaciones>
+          </ng-container>
+
+          <!-- Depósitos/Transf -->
+          <ng-container *ngSwitchCase="navTabEnum.DepositosTransferencias">
+            <button class="btn btn-primary mg-b-20"><i class="fa fa-file-excel-o"></i></button>
+            <app-depositos-transferencias></app-depositos-transferencias>
+          </ng-container>
+        </div><!-- card-body -->
+
+        <!-- Servicio al Cliente -->
+        <div class="card-body color-gray-lighter">
+          <p class="mg-b-0">...</p>
+        </div><!-- card-body -->
+
+        <!-- Más Opciones -->
+        <div class="card-body color-gray-lighter">
+          <p class="mg-b-0">...</p>
+        </div><!-- card-body -->
+
+      </div>
+    </div><!-- col-12 -->
+  </div><!-- row -->
+</ng-container>

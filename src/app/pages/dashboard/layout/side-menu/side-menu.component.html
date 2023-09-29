@@ -1,0 +1,13 @@
+<div class="sh-logopanel">
+  <a href="" class="sh-logo-text">AdminISPV1</a>
+  <a id="navicon" href="" class="sh-navicon d-none d-xl-block"><i class="icon ion-navicon"></i></a>
+  <a id="naviconMobile" href="" class="sh-navicon d-xl-none"><i class="icon ion-navicon"></i></a>
+</div><!-- sh-logopanel -->
+
+<div class="sh-sideleft-menu" #sideMenu>
+  <label class="sh-sidebar-label">Navigation</label>
+  <ul class="nav">
+    <app-module-option *ngFor="let module of dashboardModulesService.modules" [module]="module"></app-module-option>
+  </ul>
+
+</div><!-- sh-sideleft-menu -->

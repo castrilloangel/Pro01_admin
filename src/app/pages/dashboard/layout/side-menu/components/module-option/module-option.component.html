@@ -1,0 +1,43 @@
+<ng-container *ngIf="layer < 2">
+  <!-- if module is standalone (single module with no children and a route that leads to somewhere) -->
+  <li class="nav-item" *ngIf="module.route">
+    <a [class]="{'nav-link': true, 'active': dashboardModulesService.currentModule.id === module.id && 'active'}"
+      [routerLink]="module.route">
+      <i [class]="module.styleRules?.icon"></i><span>{{ module.name }}</span>
+    </a>
+  </li>
+
+  <!-- if module is a dropdown menu (module with no route but with children that can have routes and content) -->
+  <li class="nav-item" *ngIf="!module.route && module.childrenModules.length > 0">
+    <a href="" [class]="{'nav-link': true, 'with-sub': true, 'active': dashboardModulesService.currentModule.id === module.id && 'active'}">
+      <i [class]="module.styleRules?.icon"></i><span>{{ module.name }}</span>
+    </a>
+    <ul class="nav-sub" style="display: none;">
+      <app-module-option *ngFor="let childModule of module.childrenModules" [module]="childModule" [layer]="layer + 1"></app-module-option>
+    </ul>
+  </li>
+</ng-container>
+
+
+<!-- if menu has reached level 2 -->
+<ng-container *ngIf="layer > 1">
+  <!-- if route exists, lead directly to content -->
+  <li class="nav-item" *ngIf="module.route">
+    <a [class]="{'nav-link': true, 'active': dashboardModulesService.currentModule.id === module.id && 'active'}"
+      [routerLink]="module.route">
+      <i
+        [class]="module.styleRules?.icon"
+        [style]="{'margin-left': module.styleRules?.icon ? '18px' : '0px' }"></i>
+      <span>{{ module.name }}</span>
+    </a>
+  </li>
+
+  <!-- if route doesn't exist and has children, lead to component with list of children modules -->
+  <li class="nav-item" *ngIf="!module.route && module.childrenModules.length > 0">
+    <a [class]="{'nav-link': true, 'active': dashboardModulesService.currentModule.id === module.id && 'active'}"
+      href="javascript:void(0)"
+      (click)="goToModulesCardMenu()">
+      <i [class]="module.styleRules?.icon"></i><span>{{ module.name }}</span>
+    </a>
+  </li>
+</ng-container>

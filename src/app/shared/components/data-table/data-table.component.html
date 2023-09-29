@@ -1,0 +1,10 @@
+<div [class]="['table-responsive'].concat(tableClasses || '')">
+  <table [id]="tableId" class="table">
+    <thead>
+      <ng-content select="[thead]"></ng-content>
+    </thead>
+    <tbody>
+      <ng-content select="[tbody]"></ng-content>
+    </tbody>
+  </table>
+</div>

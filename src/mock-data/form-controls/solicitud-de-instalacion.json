@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "description": null,
+    "order": 1,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 12
+    },
+    "control": {
+      "name": "combo_servicios",
+      "tag": "input",
+      "label": "¿APLICA COMBO DE SERVICIOS?",
+      "attributes": {
+        "type": "radio",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 2,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 2
+    },
+    "control": {
+      "name": "tipo_servicio",
+      "tag": "select",
+      "label": "tipo servicio",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 3,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 2
+    },
+    "control": {
+      "name": "descripción",
+      "tag": "select",
+      "label": "tipo servicio",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 4,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 1
+    },
+    "control": {
+      "name": "iva",
+      "tag": "select",
+      "label": "%IVA",
+      "attributes": {
+        "placeholder": "seleccione...",
+        "value": 0,
+        "disabled": true,
+        "required": true
+      },
+      "validators": ["required"],
+      "data": []
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 5,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 1
+    },
+    "control": {
+      "name": "cantidad",
+      "tag": "input",
+      "label": "cantidad",
+      "attributes": {
+        "type": "text",
+        "disabled": true,
+        "required": true
+      },
+      "validators": ["required"]
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 6,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 2
+    },
+    "control": {
+      "name": "costo_con_iva",
+      "tag": "input",
+      "label": "costo con iva",
+      "attributes": {
+        "type": "text",
+        "pattern": "[0-9]*",
+        "value": 0,
+        "required": true
+      },
+      "validators": ["required", "pattern"]
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 7,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 2
+    },
+    "control": {
+      "name": "conversion",
+      "tag": "input",
+      "label": "",
+      "attributes": {
+        "type": "text",
+        "value": 0,
+        "disabled": true
+      }
+    }
+  },
+  {
+    "id": 1,
+    "description": null,
+    "order": 8,
+    "dataSource": "funcName",
+    "styleRules": {
+      "width": 2
+    },
+    "control": {
+      "name": "total",
+      "tag": "input",
+      "label": "total",
+      "attributes": {
+        "type": "text",
+        "value": 0,
+        "disabled": true
+      }
+    }
+  }
+]

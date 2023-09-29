@@ -1,0 +1,69 @@
+<app-data-table tableId="observaciones-table">
+  <ng-container thead>
+    <tr>
+      <th>Asunto</th>
+      <th>Descripción</th>
+      <th>Creado por</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>
+        <button title="Agregar Observaciones al Contrato" class="btn btn-primary" data-toggle="modal"
+          data-target="#modal-add-observation"><i class="fa fa-plus"></i></button>
+      </th>
+    </tr>
+  </ng-container>
+  <ng-container tbody>
+    <tr>
+      <td>ACTUALIZACION DE LOS DATOS PERSONALES DEL CLIENTE</td>
+      <td>...</td>
+      <td>VMONTIEL</td>
+      <td>31/10/2022</td>
+      <td>11:38:31</td>
+      <td></td>
+    </tr>
+  </ng-container>
+</app-data-table>
+
+<!-- LARGE MODAL -->
+<div id="modal-add-observation" class="modal fade">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-header pd-x-20">
+        <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">AGREGAR OBSERVACIONES AL CONTRATO</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pd-20">
+        <div class="card">
+          <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label">ASUNTO</label>
+                    <select class="form-control select2" data-placeholder="SELECCIONE..." tabindex="-1"
+                      aria-hidden="true">
+                      <option label="SELECCIONE..."></option>
+                      <option value="Firefox">Firefox</option>
+                      <option value="Chrome">Chrome</option>
+                    </select>
+                  </div>
+                </div><!-- col-6 -->
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label">OBSERVACIÓN</label>
+                    <textarea class="form-control"></textarea>
+                  </div>
+                </div><!-- col-6 -->
+              </div><!-- row -->
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- modal-body -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary pd-x-20" data-dismiss="modal"><i class="fa fa-times"></i>
+          Cerrar</button>
+        <button type="button" class="btn btn-primary pd-x-20"><i class="fa fa-plus"></i> Agregar</button>
+      </div>
+    </div>
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
